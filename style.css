@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png");
   background-size: 400px 300px;
   backdrop-filter: blur(25px);
   width: 100vw;
@@ -11,15 +10,14 @@ body {
   align-items: center;
 }
 
-.container {
+#container {
   border: 0.3rem solid black;
   display: flex;
   cursor: col-resize;
   position: relative;
   box-shadow: 0 25px 45px 32px rgba(0, 0, 0, 0.25);
-  --mywidth: width;
 }
-.container img {
+#container img {
   -webkit-user-drag: none;
 }
 
@@ -31,7 +29,7 @@ body {
   position: absolute;
 }
 
-#solution {
+.solution {
   position: absolute;
   width: 666px;
   height: 100%;
@@ -42,10 +40,11 @@ body {
   height: 100%;
   width: 1px;
   right: 0;
-  background-color: purple;
+  background-color: red;
   top: 0;
   position: absolute;
   display: none;
+  z-index: 1000;
 }
 
 .smooth-transition {

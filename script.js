@@ -1,9 +1,12 @@
-const container = document.querySelector('.container');
+const container = document.querySelector('#container');
 const drawing = document.querySelector('.drawing');
-const solution = document.querySelector("#solution")
+const solution = document.querySelector(".solution")
 const border = parseFloat(getComputedStyle(container).borderWidth);
 const width = parseFloat(getComputedStyle(container).width);
 const vertical = document.querySelector(".vertical-line")
+const body = document.querySelector("body")
+body.style.backgroundImage = `url(${container.querySelector("img").src})`
+
 let isFixed = false;
 
 container.addEventListener("mouseenter", (event)=>{
