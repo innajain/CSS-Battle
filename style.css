@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png");
+  background-size: 400px 300px;
+  backdrop-filter: blur(25px);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  border: 0.3rem solid black;
+  display: flex;
+  cursor: col-resize;
+  position: relative;
+  box-shadow: 0 25px 45px 32px rgba(0, 0, 0, 0.25);
+  --mywidth: width;
+}
+.container img {
+  -webkit-user-drag: none;
+}
+
+.drawing {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: inline-block;
+  position: absolute;
+}
+
+#solution {
+  position: absolute;
+  width: 666px;
+  height: 100%;
+  background: white;
+}
+
+.vertical-line {
+  height: 100%;
+  width: 1px;
+  right: 0;
+  background-color: purple;
+  top: 0;
+  position: absolute;
+  display: none;
+}
+
+.smooth-transition {
+  transition: width 0.4s ease;
+}

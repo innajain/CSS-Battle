@@ -1,0 +1,141 @@
+.a {color:
+rgb(127, 210, 201)
+rgb(255, 169, 49)
+rgb(155, 5, 121)
+rgb(255, 73, 69)
+rgb(0, 119, 143)
+rgb(131, 131, 131)
+rgb(217, 217, 217)
+rgb(242, 242, 242)
+rgb(255, 96, 91)
+rgb(255, 192, 43)
+rgb(0, 202, 63)
+}
+
+
+
+.body{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(127, 210, 201);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.window{
+  width: 264px;
+  height: 240px;
+  background-color: white;
+  margin-inline: auto;
+  border: 7.1px solid rgb(131, 131, 131);
+  transform: translateY(-1.7px);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.header{
+  height: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgb(217, 217, 217);
+  border-radius: 7.9px 7.9px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding-left: 6px;
+  box-sizing: border-box;
+}
+
+.circle{
+  width: 10.2px;
+  aspect-ratio: 1/1;
+  /* background-color: red; */
+  border-radius: 100%;
+  display: inline-block;
+  align-self: center;
+  transform: translateY(0.6px);
+}
+
+.circle1{background-color: rgb(255, 96, 91);}
+.circle2{background-color: rgb(255, 192, 43);}
+.circle3{background-color: rgb(0, 202, 63);}
+
+.content{
+  height: 100%;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 5.3px;
+  box-sizing: border-box;
+  gap: 5px;
+  background-color: rgb(242, 242, 242);
+}
+
+.row{
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  box-sizing: border-box;
+}
+
+.box{
+  background-color: green;
+  height: 100%;
+  width: 33.33%;
+}
+
+.row1{
+  height: 41.6px;
+}
+
+.box1{
+  width: 66.6%;
+  background-color: rgb(255, 73, 69);
+}
+
+.box2{
+  background-color: rgb(255, 73, 69);
+}
+
+.row2{
+  height: 108px;
+}
+
+.box3{
+  width:104px;
+  background-color: rgb(255, 169, 49);
+}
+
+.rowrow{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+.rowrow .box{
+  width: 100%;
+  background-color: rgb(155, 5, 121);
+  height: 50.9px;
+}
+
+.row3{
+  flex-grow: 1;
+}
+
+.row3 .box{
+  background-color: rgb(0, 119, 143);
+}
+
+.box6, .box8{
+  width: 68px;
+}
+
+.box7{
+  flex-grow: 1;
+}
