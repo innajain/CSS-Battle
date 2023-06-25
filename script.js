@@ -1,51 +1,103 @@
-const container = document.querySelector('#container');
-const drawing = document.querySelector('.drawing');
-const solution = document.querySelector(".solution")
+const container = document.querySelector("#container");
+const drawing = document.querySelector(".drawing");
+const solution = document.querySelector(".solution");
 const border = parseFloat(getComputedStyle(container).borderWidth);
-let width = parseFloat(getComputedStyle(container).width);
-const vertical = document.querySelector(".vertical-line")
-const body = document.querySelector("body")
-body.style.backgroundImage = `url(${container.querySelector("img").src})`
+const width = parseFloat(getComputedStyle(container).width);
+const height = parseFloat(getComputedStyle(container).height);
+// const vertical = document.querySelector(".vertical-line");
+const body = document.querySelector("body");
+body.style.backgroundImage = `url(${container.querySelector("img").src})`;
 
 let isFixed = false;
+let entrydirection = "";
 
-container.addEventListener("mouseenter", (event)=>{
-    width = parseFloat(getComputedStyle(container).width);
-    const mouseX = event.clientX - container.offsetLeft - border;
-    if (mouseX < width) {
-        setTimeout(() => {
-            drawing.classList.remove("smooth-transition")
-        }, 400);
-        
-        drawing.style.width = mouseX + 'px';
-        vertical.style.display="inline-block"
-    }
-})
+container.addEventListener("mouseenter", (event) => {
+  const rect = container.getBoundingClientRect();
+  const left = Math.abs(event.clientX - rect.left) / width;
+  const right = Math.abs(width - (event.clientX - rect.left)) / width;
+  const top = Math.abs(event.clientY - rect.top) / height;
+  const bottom = Math.abs(height - (event.clientY - rect.top)) / height;
 
-const move = container.addEventListener('mousemove', (event) => {
-    if (isFixed) return; // Do nothing if the overlay is fixed
-    
+  if (left < 0.1 && top > 0.1 && bottom > 0.1) {
+    entrydirection = "left";
+  } else if (right < 0.1 && top > 0.1 && bottom > 0.1) {
+    entrydirection = "right";
+  } else if (top < 0.1 && left > 0.1 && right > 0.1) {
+    entrydirection = "top";
+  } else if (bottom < 0.1 && left > 0.1 && right > 0.1) {
+    entrydirection = "bottom";
+  } else if (left < 0.1 && top < 0.1) {
+    entrydirection = "left-top";
+  } else if (left < 0.1 && bottom < 0.1) {
+    entrydirection = "left-bottom";
+  } else if (right < 0.1 && top < 0.1) {
+    entrydirection = "right-top";
+  } else if (right < 0.1 && bottom < 0.1) {
+    entrydirection = "right-bottom";
+  }
+  if (entrydirection.includes("left")) {
+    drawing.style.left=0
+    solution.style.left=0
+  }
+  if (entrydirection.includes("right")) {
+    drawing.style.right=0
+    solution.style.right=0
+  }
+  if (entrydirection.includes("top")) {
+    drawing.style.top=0
+    solution.style.top=0
+  }
+  if (entrydirection.includes("bottom")) {
+    drawing.style.bottom=0
+    solution.style.bottom=0
+  }
+  
+  console.log(entrydirection);
+});
+
+container.addEventListener("mousemove", (event) => {
+  if (isFixed) return; // Do nothing if the overlay is fixed
   const mouseX = event.clientX - container.offsetLeft - border;
+  const mouseY = event.clientY - container.offsetTop - border;
+  if (entrydirection.includes("left")) {
+    drawing.style.width = mouseX + "px";
+  }
+  if (entrydirection.includes("right")) {
+    drawing.style.width = width-mouseX + "px";
+  }
+  if (entrydirection.includes("top")) {
+    drawing.style.height = mouseY + "px";
+  }
+  if (entrydirection.includes("bottom")) {
+    drawing.style.height = height-mouseY + "px";
+  }
   if (mouseX < width) {
-      drawing.style.width = mouseX + 'px';
-      vertical.style.display="inline-block"
-    }
+    // vertical.style.display = "inline-block";
+  }
 });
 
-container.addEventListener('click', (event) => {
-    isFixed = !isFixed; // Toggle the fixed state on each click
-    
-    const mouseX = event.clientX - container.offsetLeft - border;
-    drawing.style.width = mouseX + 'px'; // Restore original functionality
-    
+container.addEventListener("click", (event) => {
+  isFixed = !isFixed; // Toggle the fixed state on each click
 });
 
-container.addEventListener('mouseleave', () => {
-    if (isFixed) return; // Do nothing if the overlay is fixed
-    drawing.classList.add("smooth-transition")
-    drawing.style.width = '100%';
+container.addEventListener("mouseleave", () => {
+  if (isFixed) return; // Do nothing if the overlay is fixed
+  drawing.classList.add("smooth-transition");
+  drawing.style.width = "100%";
+  drawing.style.height = "100%";
+  setTimeout(() => {
+    drawing.classList.remove("smooth-transition");
     setTimeout(() => {
-        drawing.classList.remove("smooth-transition")
-    }, 400);
-    vertical.style.display="none"
+        drawing.style.left = "";
+        drawing.style.right = "";
+        drawing.style.top = "";
+        drawing.style.bottom = "";
+        solution.style.left = "";
+        solution.style.right = "";
+        solution.style.top = "";
+        solution.style.bottom = "";
+    }, 0);
+  }, 150);
+  // vertical.style.display = "none";
+
 });
