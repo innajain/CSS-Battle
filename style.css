@@ -48,5 +48,11 @@ body {
 }
 
 .smooth-transition {
-  transition: width 0.4s ease;
+  transition: width 150ms ease;
+  transition: height 150ms ease;
+}
+.danda{
+  height: 30%;
+  background-color: red;
+  width: 100%;
 }
