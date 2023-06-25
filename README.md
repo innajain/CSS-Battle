@@ -1,4 +1,3 @@
-```
 # CSS Battle Project
 
 This is a project that demonstrates a dynamic drawing overlay on top of an image using HTML, CSS, and JavaScript. It allows users to resize and position the overlay by interacting with the container.
@@ -72,4 +71,3 @@ Please ensure that you adhere to the existing code style and follow best practic
 ## License
 
 This project is licensed under the [MIT License](LICENSE). You are free to modify and distribute the codebase for personal or commercial use. See the [LICENSE](LICENSE) file for more details.
-```
