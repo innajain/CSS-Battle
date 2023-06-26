@@ -60,7 +60,6 @@ container.addEventListener("mouseenter", (event) => {
     solution.style.bottom=0
   }
   
-  console.log(entrydirection);
 });
 
 container.addEventListener("mousemove", (event) => {
