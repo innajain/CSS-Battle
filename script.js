@@ -20,20 +20,28 @@ container.addEventListener("mouseenter", (event) => {
 
   if (left < 0.1 && top > 0.1 && bottom > 0.1) {
     entrydirection = "left";
+    container.style.cursor="col-resize"
   } else if (right < 0.1 && top > 0.1 && bottom > 0.1) {
     entrydirection = "right";
+    container.style.cursor="col-resize"
   } else if (top < 0.1 && left > 0.1 && right > 0.1) {
     entrydirection = "top";
+    container.style.cursor="row-resize"
   } else if (bottom < 0.1 && left > 0.1 && right > 0.1) {
     entrydirection = "bottom";
+    container.style.cursor="row-resize"
   } else if (left < 0.1 && top < 0.1) {
     entrydirection = "left-top";
+    container.style.cursor="crosshair"
   } else if (left < 0.1 && bottom < 0.1) {
     entrydirection = "left-bottom";
+    container.style.cursor="crosshair"
   } else if (right < 0.1 && top < 0.1) {
     entrydirection = "right-top";
+    container.style.cursor="crosshair"
   } else if (right < 0.1 && bottom < 0.1) {
     entrydirection = "right-bottom";
+    container.style.cursor="crosshair"
   }
   if (entrydirection.includes("left")) {
     drawing.style.left=0
